@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Plan"
+        android:id="@+id/Plan"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:enabled="true"/>
+
+    <item android:title="Track"
+        android:id="@+id/Track"
+        android:icon="@drawable/ic_baseline_playlist_add_check_24"
+        android:enabled="true"/>
+    <item
+        android:id="@+id/Profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:enabled="true"/>
+</menu>

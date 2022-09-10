@@ -21,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.btnLogin.setOnClickListener {
             validateLogin()
+            val intent=Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 }
 
@@ -36,6 +38,9 @@ class LoginActivity : AppCompatActivity() {
         if (password.isBlank()) {
             error = true
             binding.tilLogiPassword.error = "Enter Password"
+        }
+        if (!error){
+
         }
 
     }

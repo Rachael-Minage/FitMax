@@ -11,7 +11,7 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        validateSignUp()
+//        validateSignUp()
         onclickListeners()
     }
 
@@ -38,35 +38,36 @@ class SignupActivity : AppCompatActivity() {
             var phoneNumber = binding.etPhone.text.toString()
             var error = false
 
-
-
           if (firstName.isBlank()) {
-              error = true
+              error=true
               binding.tilFistName.error = "Enter First Name"
           }
           if (lastName.isBlank()) {
-              error = true
+              error=true
               binding.tilLastName.error = "Enter Last Name"
           }
           if (email.isBlank()) {
-              error = true
+              error=true
               binding.tilEmail.error = "Enter Email"
           }
           if (phoneNumber.isBlank()) {
-              error = true
+              error=true
               binding.tilPhone.error = "Enter Phone Number"
           }
           if (password.isBlank()) {
-              error = true
+              error=true
               binding.tilPassword.error = "Enter Your Password"
           }
           if (confirmPassword.isBlank()) {
-              error = true
+              error=true
               binding.tilConfirm.error = "confirm your password "
           }
           if (password != confirmPassword) {
-              error = true
+              error=true
               binding.tilConfirm.error = "passwords must match"
           }
+        if (!error){
+
+        }
     }
 }
