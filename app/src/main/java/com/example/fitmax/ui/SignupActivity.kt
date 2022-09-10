@@ -1,4 +1,4 @@
-package com.example.fitmax
+package com.example.fitmax.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -67,6 +67,7 @@ class SignupActivity : AppCompatActivity() {
               binding.tilConfirm.error = "passwords must match"
           }
         if (!error){
+
 
         }
     }

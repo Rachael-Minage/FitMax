@@ -1,9 +1,9 @@
-package com.example.fitmax
+package com.example.fitmax.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.fitmax.R
 import com.example.fitmax.databinding.ActivityHomeBinding
-import com.example.fitmax.databinding.ActivityLoginBinding
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
@@ -17,16 +17,22 @@ class HomeActivity : AppCompatActivity() {
     fun setbottomnav() {
         binding.bnvNav.setOnItemSelectedListener {  item ->
             when(item.itemId){
-                R.id.Plan->{
-                    supportFragmentManager.beginTransaction().replace(R.id.fcvMenus,PlanFragment()).commit()
+                R.id.Plan ->{
+                    supportFragmentManager.beginTransaction().replace(R.id.fcvMenus, PlanFragment()).commit()
                     true
                 }
-                R.id.Track->{
-                    supportFragmentManager.beginTransaction().replace(R.id.fcvMenus,TrackFragment()).commit()
+                R.id.Track ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fcvMenus,
+                        TrackFragment()
+                    ).commit()
                     true
                 }
-                R.id.Profile->{
-                    supportFragmentManager.beginTransaction().replace(R.id.fcvMenus,ProfileFragment()).commit()
+                R.id.Profile ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fcvMenus,
+                        ProfileFragment()
+                    ).commit()
                     true
                 }
                 else->false
