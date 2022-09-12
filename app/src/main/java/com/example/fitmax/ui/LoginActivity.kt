@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    private fun validateLogin() {
+     fun validateLogin() {
         var email = binding.etLoginEmail.text.toString()
         var password = binding.etLoginPassword.text.toString()
         var error = false

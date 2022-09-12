@@ -1,12 +1,19 @@
 package com.example.fitmax.ui
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.example.fitmax.databinding.ActivitySignupBinding
+import com.example.fitmax.models.RegisterRequest
+import com.example.fitmax.viewmodels.UserViewModel
 
 class SignupActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignupBinding
+    val userViewModel: UserViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
@@ -28,6 +35,8 @@ class SignupActivity : AppCompatActivity() {
          }
 
     }
+
+
 
     fun validateSignUp() {
             var firstName = binding.etFirstName.text.toString()
@@ -67,8 +76,20 @@ class SignupActivity : AppCompatActivity() {
               binding.tilConfirm.error = "passwords must match"
           }
         if (!error){
-
-
+            var registerRequest = RegisterRequest(firstName, lastName, phoneNumber, email, password)
+            userViewModel.register(registerRequest)
         }
     }
-}
+    override fun onResume() {
+        super.onResume()
+        userViewModel.logInLiveData.observe(this, Observer{ registerResponse->
+            Toast.makeText(baseContext,registerResponse?.message, Toast.LENGTH_LONG).show()
+            startActivity(Intent(baseContext,LoginActivity::class.java))
+        })
+        userViewModel.registerError.observe(this, Observer{ errorMsg ->
+            Toast.makeText(baseContext, errorMsg, Toast.LENGTH_SHORT).show()
+        })
+    }
+
+    }
+
